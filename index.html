@@ -14,9 +14,9 @@ The above copyright notice and this permission notice shall be included in all c
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="./assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
       Lens Replacer
   </title>
@@ -26,49 +26,62 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="./assets/css/material-dashboard.css?v=2.2.2" rel="stylesheet" />
+
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link href="./assets/css/demo.css" rel="stylesheet" />
+  
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>  
 
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
-
 </head>
 
-<body class="off-canvas-sidebar"> 
-  <!-- End Navbar -->
+<body class="off-canvas-sidebar">
   <div class="wrapper wrapper-full-page">
-    <div class="page-header lock-page header-filter" style="background-image: url('./assets/img/lock.jpg')">
+    <div style="background-image: url('./assets/img/lock.jpg'); background-size: cover; background-repeat: round; height: 100vh;display: flex;align-items: center;">
       <!--   you can change the color of the filter page using: data-color="blue | green | orange | red | purple" -->
-      <div class="container">
+      <div style="width: 100%; padding: 15px;">
         <div class="row">
-          <div class="col">
-            <div class="card ml-auto mr-auto" style="width: fit-content;">
-                <video id="webcam" width="640" height="480" autoplay>                  
-                </video>    
-                <canvas id="output_canvas" width="640" height="480" style="position: absolute;opacity: 0.15;"></canvas>
-                <div class="ml-auto mr-auto">
-                    <button class="btn btn-just-icon btn-round" style="background-color: green;" onclick="selectColor('green')"></button>
-                    <button class="btn btn-just-icon btn-round" style="background-color: red;" onclick="selectColor('red')"></button>
-                    <button class="btn btn-just-icon btn-round" style="background-color: blue;" onclick="selectColor('blue')"></button>
+          <div class="col-lg-6 ml-auto mr-auto">
+            <div class="card">
+                <div class="card-body" style="padding: 0px;">
+                  <div style="display: flex;" id="captureDiv">
+                    <video id="webcam" style="width: 100%;" autoplay playsinline></video>
+                    <canvas id="output_canvas" style="display:block; position: absolute; width:100%; height: 100%;"></canvas>
+                    <div class="bottom-layout">
+                      <img class="ml-1" src="./assets/img/top.png" width="121" height="100" style="display:block; position: absolute;"/>
+                      <div class="iris_div">
+                        <div style="position: relative;">
+                          <div class="row_div" style="height: 60px;">
+                            <button class="round-btn" data-image="./assets/lens/gris.png">
+                              <img src="./assets/lens/gris.png"/>
+                              GRIS
+                            </button>
+                            <button class="round-btn" data-image="./assets/lens/intenso.png">
+                              <img src="./assets/lens/intenso.png"/>
+                              INTENSO
+                            </button>
+                            <button class="round-btn" data-image="./assets/lens/pure_hazel.png">
+                              <img src="./assets/lens/pure_hazel.png"/>
+                              HAZEL
+                            </button>
+                            <button class="round-btn" data-image="./assets/lens/verde.png">
+                              <img src="./assets/lens/verde.png"/>
+                              VERDE
+                            </button>                          
+                          </div>
+                          <button class="btn btn-success btn-round btn-fab capture-btn" style="top: 10px;"><i class="material-icons">photo_camera</i></button>
+                        </div>                        
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
+            <p style="text-align: center; font-weight: bold;">
+              ( Tips para tomar tu foto: 1. No muevas mucho la cabeza. 2. Mira al centro de la pantalla. 3. Trata de no tener una luz intensa de fondo)
+            </p>
           </div>
         </div>
-      </div>
-      <footer class="footer">
-        <div class="container">          
-          <div class="copyright float-center">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by Apollo
-          </div>
-        </div>
-      </footer>
+      </div>      
     </div>
   </div>
 
@@ -86,7 +99,7 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="./assets/js/material-dashboard.js?v=2.2.2" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="./assets/js/demo.js"></script>
+  <script type="module" src="./assets/js/demo.js"></script>
 </body>
 
 </html>

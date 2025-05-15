@@ -1,0 +1,56 @@
+.wrapper_custom {
+  min-height: 100vh;
+  overflow: hidden;
+  background-image: url('./assets/img/lock.jpg');
+}
+
+.round-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 40px; /* Adjust the size as needed */
+  height: 40px; /* Adjust the size as needed */
+  padding: 0;
+  margin: 2px;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.round-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the button without stretching */
+}
+
+.iris_div {
+  padding-top: 30px;
+  justify-content: center !important;
+  background-image: url('../img/bottom.png');
+  background-repeat: round;
+  align-items: center;
+  margin-top: 39px;
+  padding-left: 40px;
+}
+
+.row_div {
+  display: flex;
+  justify-content: center !important;
+}
+
+.bottom-layout {
+  bottom: 0;
+  width:100%;
+  display:block;
+  position: absolute;
+  height: 113px;
+}
+
+.capture-btn {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
